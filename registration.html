@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body class="p-3 m-2 bg-light">
+
+    <div class="container col-6 col-md-4">
+
+        <form action="registration.php" method="post" class="p-3 m-2 bg-white rounded">
+
+            <h3 class="text-center font-weight-light">Регистрация</h3>
+
+            <div class="form-group">
+                <label for="email">Введите логин</label>
+                <input required type="text" class="form-control" name="login" id="login" placeholder="Например, ivan"
+                    value="<?=$login?>">
+                <?php
+                    if(isset($err['login_empty'])) {
+                        echo $err['login_empty'];
+                    }
+                    if(isset($err['login_big'])) {
+                        echo $err['login_big'];
+                    }
+                    if(isset($err['login_symbols'])) {
+                        echo $err['login_symbols'];
+                    }
+                    if(isset($err['login_double'])) {
+                        echo $err['login_double'];
+                    }
+                ?>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Введите телефон</label>
+                <input required type="text" class="form-control" name="phone" id="phone" placeholder="Например, +79012345678"
+                    value="<?=$phone?>">
+                <?php
+                    if(isset($err['phone_symbols'])) {
+                        echo $err['phone_symbols'];
+                    }
+                    if(isset($err['phone_double'])) {
+                        echo $err['phone_double'];
+                    }
+                ?>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Введите электронную почту</label>
+                <input required type="email" class="form-control" name="email" id="email"
+                    placeholder="Например, pochta@gmail.com" value="<?=$email?>">
+                <?php
+                    if(isset($err['email_symbols'])) {
+                        echo $err['email_symbols'];
+                    }
+                    if(isset($err['email_big'])) {
+                        echo $err['email_big'];
+                    }
+                    if(isset($err['email_double'])) {
+                        echo $err['email_double'];
+                    }
+                ?>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Введите пароль</label>
+                <input required type="password" class="form-control" name="password" id="password"
+                    placeholder="Например, 12345678" value="<?=$password?>">
+                <?php
+                    if(isset($err['password_small'])) {
+                        echo $err['password_small'];
+                    }
+                    if(isset($err['password_big'])) {
+                        echo $err['password_big'];
+                    }
+                ?>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Повторите пароль</label>
+                <input required type="password" class="form-control" name="passwordconfirm" id="passwordconfirm"
+                    placeholder="Например, 12345678" value="<?=$passwordconfirm?>">
+                <?php
+                    if(isset($err['passwordconfirm_small'])) {
+                        echo $err['passwordconfirm_small'];
+                    }
+                    if(isset($err['passwordconfirm_big'])) {
+                        echo $err['passwordconfirm_big'];
+                    }
+                ?>
+                <?php
+                    if(isset($err['passwordconfirm_symbols'])) {
+                        echo $err['passwordconfirm_symbols'];
+                    }
+                ?>
+            </div>
+
+            <button type="submit" class="btn btn-outline-success d-block mx-auto">Зарегистрироваться</button>
+            <br>
+            <div class="text-center"><a href="auth.php">Авторизация</a></div>
+
+            <?php if(isset($new)) { ?>
+            <br>
+            <div class="alert alert-success text-center" role="alert">
+                Теперь вы можете войти</a>
+            </div>
+            <?php } ?>
+
+        </form>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
